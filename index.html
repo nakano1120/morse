@@ -8,6 +8,8 @@
 <body>
     <h2 id="moji"></h2>
     <div id="morse"></div>
+    <input type="button" value="・" onclick="but(0)">
+    <input type="button" value="ー" onclick="but(1)">
     <script>
         var i=0;
         var l=0;
@@ -16,6 +18,24 @@
         var mo=document.getElementById("morse")
         var intval
         var outval
+        function but(ls){
+            clearInterval(outval);
+            if(l>80){
+                check()
+                ji.innerHTML+="　"
+            }else if(l>30){
+                check()
+            }
+            l=0
+            if(ls==0){
+                mo.innerHTML+="・"
+            }else{
+                mo.innerHTML+="ー"
+            }
+            outval=setInterval(function(){
+                l+=1
+            }, 10);
+        }
         document.onkeydown = function(e) {
             var keyCode = false;
             clearInterval(outval);
@@ -24,7 +44,6 @@
                 ji.innerHTML+="　"
             }else if(l>20){
                 check()
-
             }
             l=0
             if (e) event = e;
