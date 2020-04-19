@@ -14,6 +14,7 @@
         var i=0;
         var l=0;
         var music = new Audio('naga.mp3');
+        var mu = new Audio('yakyu.mp3');
         var ji=document.getElementById("moji")
         var mo=document.getElementById("morse")
         var intval
@@ -26,8 +27,10 @@
             l=0
             if(ls==0){
                 mo.innerHTML+="・"
+                mu.play();
             }else{
                 mo.innerHTML+="ー"
+                music.play();
             }
             outval=setInterval(function(){
                 l+=1
